@@ -202,9 +202,9 @@ const RegisterForm = ({ onRegister, onSwitchToLogin }) => {
         <div className="mt-8 text-center text-xs text-slate-500">
           <p>
             By signing up, you agree to our{' '}
-            <a href="#" className="text-purple-600 hover:text-purple-700">Terms of Service</a>{' '}
+           <p className="text-purple-600 hover:text-purple-700">Terms of Service</p>{' '}
             and{' '}
-            <a href="#" className="text-purple-600 hover:text-purple-700">Privacy Policy</a>
+           <p className="text-purple-600 hover:text-purple-700">Privacy Policy</p>
           </p>
         </div>
       </div>

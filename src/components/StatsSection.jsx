@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { TrendingUp, Users, Globe, Clock, DollarSign, Shield, Award } from 'lucide-react';
 
 const StatsSection = () => {
@@ -6,8 +6,8 @@ const StatsSection = () => {
   const [animatedStats, setAnimatedStats] = useState({});
   const sectionRef = useRef(null);
 
-  const stats = [
-    { 
+  const stats = useMemo(() =>[
+      { 
       id: 'volume',
       value: 817,
       suffix: 'B',
@@ -43,7 +43,8 @@ const StatsSection = () => {
       color: 'yellow',
       prefix: ''
     }
-  ];
+  ], []); 
+    
 
   const additionalStats = [
     { 
@@ -71,33 +72,31 @@ const StatsSection = () => {
       color: 'orange'
     }
   ];
+  
 
   // Intersection Observer
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          startAnimation();
-        }
-      },
-      { threshold: 0.3 }
-    );
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        stats.forEach((stat, index) => {
+          setTimeout(() => {
+            animateValue(stat.id, 0, stat.value, 2000);
+          }, index * 200);
+        });
+      }
+    },
+    { threshold: 0.3 }
+  );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+  if (sectionRef.current) {
+    observer.observe(sectionRef.current);
+  }
 
-    return () => observer.disconnect();
-  }, []);
+  return () => observer.disconnect();
+}, [stats]);
 
-  const startAnimation = () => {
-    stats.forEach((stat, index) => {
-      setTimeout(() => {
-        animateValue(stat.id, 0, stat.value, 2000);
-      }, index * 200);
-    });
-  };
 
   const animateValue = (id, start, end, duration) => {
     const startTimestamp = performance.now();

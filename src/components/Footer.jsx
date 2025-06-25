@@ -63,15 +63,15 @@ const Footer = () => {
               Online payment processing for internet businesses. Stripe is a suite of payment APIs that powers commerce for businesses of all sizes.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors">
+              <p  className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors">
                 <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors">
+              </p>
+              <p  className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors">
                 <Github className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors">
+              </p>
+              <p  className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors">
                 <Linkedin className="w-5 h-5" />
-              </a>
+              </p>
             </div>
           </div>
 
@@ -84,9 +84,9 @@ const Footer = () => {
               <ul className="space-y-3">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a href="#" className="text-slate-400 hover:text-white transition-colors">
+                    <p  className="text-slate-400 hover:text-white transition-colors">
                       {link}
-                    </a>
+                    </p>
                   </li>
                 ))}
               </ul>
@@ -98,9 +98,9 @@ const Footer = () => {
         <div className="border-t border-slate-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-6 text-slate-400 text-sm">
             <span>© 2024 Stripe, Inc.</span>
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
-            <a href="#" className="hover:text-white transition-colors">Cookies</a>
+            <p  className="hover:text-white transition-colors">Privacy</p>
+            <p  className="hover:text-white transition-colors">Terms</p>
+            <p  className="hover:text-white transition-colors">Cookies</p>
           </div>
           <div className="text-slate-400 text-sm">
             English (United States)
